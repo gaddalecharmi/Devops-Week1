@@ -1,0 +1,25 @@
+GET http://localhost:3000/students
+
+###
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Rahul",
+    "age": 22,
+    "course": "IT"
+}
+
+###
+GET http://localhost:3000/students/1
+
+###
+PATCH http://localhost:3000/students/3
+Content-Type: application/json
+
+{
+    "age": 21
+}
+
+###
+DELETE http://localhost:3000/students/2
