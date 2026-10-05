@@ -1,0 +1,30 @@
+### GET all students
+GET http://localhost:3000/students
+
+
+### GET student by ID
+GET http://localhost:3000/students/1
+
+
+### POST student
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+    "name": "Ravi Kumar",
+    "rollNo": "23071A0550",
+    "course": "Electronics"
+}
+
+
+### PATCH student
+PATCH http://localhost:3000/students/1
+Content-Type: application/json
+
+{
+    "course": "Computer Engineering"
+}
+
+
+### DELETE student
+DELETE http://localhost:3000/students/2
