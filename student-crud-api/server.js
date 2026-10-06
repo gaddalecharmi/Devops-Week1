@@ -1,8 +1,33 @@
 const express = require("express");
+const winston = require("winston");
 
 const app = express();
+const logger = winston.createLogger({
+    level: "info",
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.printf(({ timestamp, level, message }) => {
+            return `${timestamp} ${level}: ${message}`;
+        })
+    ),
+    transports: [
+        new winston.transports.File({
+            filename: "logs/app.log"
+        }),
+        new winston.transports.Console()
+    ]
+});
 
 app.use(express.json());
+logger.info("Server is running at http://localhost:3000 for roll number 23071A0516");
+
+app.use((req, res, next) => {
+    res.on("finish", () => {
+        logger.info(`${req.method} ${req.originalUrl} ${res.statusCode}`);
+    });
+
+    next();
+});
 let students = [
     {
         id: 1,
