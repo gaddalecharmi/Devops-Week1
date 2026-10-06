@@ -348,4 +348,111 @@ kubectl get services
 kubectl port-forward service/23071a0516-crud-service 3000:3000
 ```
 ```
+Terraform Lab - 23071A0516
+Project
+Terraform configuration workflow using a local file resource.
+Requirements
+- Terraform CLI
+- VS Code
+- PowerShell
+- HashiCorp Terraform VS Code Extension
+Project Folder
+23071A0516-Terraform
 
+Terraform Configuration
+File: main.tf
+terraform {
+  required_providers {
+    local = {
+      source = "hashicorp/local"
+    }
+  }
+}
+
+resource "local_file" "lab_file" {
+  filename = "${path.module}/23071A0516.txt"
+  content  = "Terraform Lab Activity\nRoll Number: 23071A0516"
+}
+
+Commands
+1. Check Terraform Version
+terraform --version
+
+2. Create Project Folder
+mkdir 23071A0516-Terraform
+cd 23071A0516-Terraform
+
+3. Open Project in VS Code
+code .
+
+Create and save main.tf.
+4. Initialize Terraform
+terraform init
+
+5. Validate Configuration
+terraform validate
+
+6. Create Execution Plan
+terraform plan
+
+Expected result:
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+7. Apply Configuration
+terraform apply
+
+When prompted, enter:
+yes
+
+Expected result:
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+This creates:
+23071A0516.txt
+
+8. Show Terraform State
+terraform show
+
+9. List Terraform Resources
+terraform state list
+
+Expected output:
+local_file.lab_file
+
+10. Destroy Terraform Resource
+terraform destroy
+
+When prompted, enter:
+yes
+
+Expected result:
+Destroy complete! Resources: 1 destroyed.
+
+Complete Command Sequence
+terraform --version
+
+mkdir 23071A0516-Terraform
+cd 23071A0516-Terraform
+
+code .
+
+terraform init
+
+terraform validate
+
+terraform plan
+
+terraform apply
+
+terraform show
+
+terraform state list
+
+terraform destroy
+
+For terraform apply and terraform destroy, type yes when Terraform asks for confirmation.
+Expected Resource
+Resource Type: local_file
+Resource Name: lab_file
+File Created: 23071A0516.txt
+Roll Number: 23071A0516
