@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 23071a0516-crud-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crud-app
+  template:
+    metadata:
+      labels:
+        app: crud-app
+    spec:
+      containers:
+        - name: crud-container
+          image: 23071a0516-crud-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000

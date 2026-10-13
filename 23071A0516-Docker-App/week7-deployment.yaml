@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 23071a0516-week7-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: week7-app
+  template:
+    metadata:
+      labels:
+        app: week7-app
+    spec:
+      containers:
+        - name: week7-container
+          image: 23071a0516-week7-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
